@@ -26,8 +26,14 @@ export default async function SettingsPage() {
   const dummyUser = user || {
     id: 'demo-user-id',
     email: 'demo@ghouse.co.jp',
-    name: 'デモユーザー',
-    role: 'admin',
+    display_name: 'デモユーザー',
+    avatar_url: null,
+    department: null,
+    position: null,
+    is_admin: true,
+    notification_settings: {},
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   }
 
   return (
