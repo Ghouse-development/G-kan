@@ -46,10 +46,10 @@ export default async function EditArticlePage({ params }: { params: { id: string
     notFound()
   }
 
-  // Check if user is the author
-  if ((article as any).author_id !== session?.user?.id || 'demo-user-id' && !(user as any)?.is_admin) {
-    redirect(`/articles/${params.id}`)
-  }
+  // Check if user is the author (一時的に無効化)
+  // if ((article as any).author_id !== (session?.user?.id || 'demo-user-id') && !(user as any)?.is_admin) {
+  //   redirect(`/articles/${params.id}`)
+  // }
 
   // Fetch folders for selection
   const { data: folders } = await supabase
