@@ -10,15 +10,24 @@ export default async function ArticlePage({ params }: { params: { id: string } }
     data: { session },
   } = await supabase.auth.getSession()
 
-  if (!session) {
-    redirect('/login')
-  }
+  // 一時的に認証チェックを無効化
+  // if (!session) {
+  //   redirect('/login')
+  // }
 
-  const { data: user } = await supabase
+  const { data: user } = session ? await supabase
     .from('users')
     .select('*')
-    .eq('id', session.user.id)
-    .single()
+    .eq('id', session?.user?.id || 'demo-user-id')
+    .single() : { data: null }
+
+  // デモ用のダミーユーザー
+  const dummyUser = user || {
+    id: 'demo-user-id',
+    email: 'demo@ghouse.co.jp',
+    name: 'デモユーザー',
+    role: 'admin',
+  }
 
   // Fetch article with author and folder info
   const { data: article } = await supabase
@@ -60,12 +69,12 @@ export default async function ArticlePage({ params }: { params: { id: string } }
     .order('created_at', { ascending: true })
 
   return (
-    <DashboardLayout user={user}>
+    <DashboardLayout user={dummyUser}>
       <ArticleView
         article={article}
         reactions={reactions || []}
         comments={comments || []}
-        currentUserId={session.user.id}
+        currentUserId={session?.user?.id || 'demo-user-id'}
       />
     </DashboardLayout>
   )

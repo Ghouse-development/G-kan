@@ -10,15 +10,24 @@ export default async function EditArticlePage({ params }: { params: { id: string
     data: { session },
   } = await supabase.auth.getSession()
 
-  if (!session) {
-    redirect('/login')
-  }
+  // 一時的に認証チェックを無効化
+  // if (!session) {
+  //   redirect('/login')
+  // }
 
-  const { data: user } = await supabase
+  const { data: user } = session ? await supabase
     .from('users')
     .select('*')
-    .eq('id', session.user.id)
-    .single()
+    .eq('id', session?.user?.id || 'demo-user-id')
+    .single() : { data: null }
+
+  // デモ用のダミーユーザー
+  const dummyUser = user || {
+    id: 'demo-user-id',
+    email: 'demo@ghouse.co.jp',
+    name: 'デモユーザー',
+    role: 'admin',
+  }
 
   // Fetch article
   const { data: article } = await supabase
@@ -32,7 +41,7 @@ export default async function EditArticlePage({ params }: { params: { id: string
   }
 
   // Check if user is the author
-  if ((article as any).author_id !== session.user.id && !(user as any)?.is_admin) {
+  if ((article as any).author_id !== session?.user?.id || 'demo-user-id' && !(user as any)?.is_admin) {
     redirect(`/articles/${params.id}`)
   }
 
@@ -44,10 +53,10 @@ export default async function EditArticlePage({ params }: { params: { id: string
     .order('name')
 
   return (
-    <DashboardLayout user={user}>
+    <DashboardLayout user={dummyUser}>
       <div className="p-8">
         <h1 className="text-3xl font-bold mb-6">記事を編集</h1>
-        <ArticleEditor folders={folders || []} userId={session.user.id} article={article} />
+        <ArticleEditor folders={folders || []} userId={session?.user?.id || 'demo-user-id'} article={article} />
       </div>
     </DashboardLayout>
   )

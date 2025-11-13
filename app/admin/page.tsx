@@ -11,15 +11,24 @@ export default async function AdminPage() {
     data: { session },
   } = await supabase.auth.getSession()
 
-  if (!session) {
-    redirect('/login')
-  }
+  // 一時的に認証チェックを無効化
+  // if (!session) {
+  //   redirect('/login')
+  // }
 
-  const { data: user } = await supabase
+  const { data: user } = session ? await supabase
     .from('users')
     .select('*')
-    .eq('id', session.user.id)
-    .single()
+    .eq('id', session?.user?.id || 'demo-user-id')
+    .single() : { data: null }
+
+  // デモ用のダミーユーザー
+  const dummyUser = user || {
+    id: 'demo-user-id',
+    email: 'demo@ghouse.co.jp',
+    name: 'デモユーザー',
+    role: 'admin',
+  }
 
   // Check if user is admin
   if (!(user as any)?.is_admin) {
@@ -27,7 +36,7 @@ export default async function AdminPage() {
   }
 
   return (
-    <DashboardLayout user={user}>
+    <DashboardLayout user={dummyUser}>
       <div className="p-8">
         <h1 className="text-3xl font-bold mb-8">🔧 管理者ダッシュボード</h1>
 
