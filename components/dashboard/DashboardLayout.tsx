@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import type { User } from '@/types/supabase'
+import NotificationBell from '@/components/notifications/NotificationBell'
 
 interface DashboardLayoutProps {
   children: ReactNode
@@ -158,7 +159,8 @@ export default function DashboardLayout({ children, user }: DashboardLayoutProps
               <span className="absolute left-3 top-2.5 text-gray-400">🔍</span>
             </div>
           </div>
-          <div className="ml-4">
+          <div className="ml-4 flex items-center gap-3">
+            <NotificationBell userId={user?.id || ''} />
             <Link
               href="/articles/new"
               className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
