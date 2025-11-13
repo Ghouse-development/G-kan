@@ -35,9 +35,10 @@ export default function DashboardLayout({ children, user }: DashboardLayoutProps
   const adminNavigation = user?.is_admin
     ? [
         { name: '承認待ち', href: '/approvals', icon: '✅' },
+        { name: '管理者', href: '/admin', icon: '🔧' },
         { name: '設定', href: '/settings', icon: '⚙️' },
       ]
-    : []
+    : [{ name: '設定', href: '/settings', icon: '⚙️' }]
 
   return (
     <div className="min-h-screen bg-gray-50 flex">

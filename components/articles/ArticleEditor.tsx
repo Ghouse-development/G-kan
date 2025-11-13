@@ -3,6 +3,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import DuplicateChecker from './DuplicateChecker'
+import FileUpload from '@/components/files/FileUpload'
+import FileList from '@/components/files/FileList'
 
 interface Folder {
   id: string
@@ -193,6 +196,23 @@ export default function ArticleEditor({ folders, userId, article }: ArticleEdito
               ))}
             </div>
           )}
+        </div>
+
+        {!article && title && content && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              重複チェック
+            </label>
+            <DuplicateChecker title={title} content={content} />
+          </div>
+        )}
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            ファイル添付
+          </label>
+          <FileUpload articleId={article?.id} />
+          {article && <FileList articleId={article.id} />}
         </div>
 
         <div className="flex items-center justify-between pt-6 border-t border-gray-200">
