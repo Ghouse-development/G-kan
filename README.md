@@ -2,41 +2,37 @@
 
 株式会社Gハウスの社内ナレッジを一元管理し、AI自然言語検索で誰でも簡単に情報にアクセスできるシステムです。
 
-## 🚀 クイックスタート（10分で完了）
+## 🚀 セットアップ（3分で完了）
 
-### ステップ1: 自動セットアップ実行
+### ✅ すでに完了していること
+- Storageバケット作成済み
+- 環境変数設定済み
+- 全機能実装済み
 
-```bash
-npm install
-npm run setup:db
-```
+### 🎯 残り1ステップ（3分）
 
-✅ 自動で完了: Storageバケット`files`の作成
+1. **[このリンクをクリック →  SQL Editor](https://supabase.com/dashboard/project/dtdtexkwbirnpqkwzzxl/sql/new)**
 
-### ステップ2: データベースセットアップ（3分）
+2. `supabase/ALL_IN_ONE_SETUP.sql` の内容をコピー&ペースト → **Run**
 
-1. [Supabase SQL Editor](https://supabase.com/dashboard/project/dtdtexkwbirnpqkwzzxl/sql/new) を開く
-2. `supabase/ALL_IN_ONE_SETUP.sql` の内容をコピー&ペースト
-3. **Run** をクリック
+3. Storage RLSポリシー設定（[詳細](./ZERO_TO_HERO.md#ステップ3-storage-rlsポリシー設定1分)）
 
-### ステップ3: Storage RLSポリシー設定（2分）
+4. 起動:
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-詳細は [QUICK_SETUP.md](./QUICK_SETUP.md) を参照
+🎉 完成！ http://localhost:3000
 
-### ステップ4: 起動
+**AI機能**: オプショナル（`.env.local`に`OPENAI_API_KEY`設定で有効化）
 
-```bash
-npm run dev
-```
+---
 
-🎉 http://localhost:3000 で動作確認！
-
-**オプション**: AI機能を使う場合は`.env.local`に`OPENAI_API_KEY`を設定
-
-📖 詳細ガイド:
-- **10分で完了**: [QUICK_SETUP.md](./QUICK_SETUP.md) ← おすすめ！
-- 詳細手順: [DEPLOYMENT_STEPS.md](./DEPLOYMENT_STEPS.md)
-- チェックリスト: [SETUP_CHECKLIST.md](./SETUP_CHECKLIST.md)
+📖 **詳細ガイド:**
+- **3分で完了**: [ZERO_TO_HERO.md](./ZERO_TO_HERO.md) ← 最短！
+- 10分ガイド: [QUICK_SETUP.md](./QUICK_SETUP.md)
+- 完全手順: [DEPLOYMENT_STEPS.md](./DEPLOYMENT_STEPS.md)
 
 ## 🎯 主な機能
 

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "setup:db": "node scripts/run-migrations.mjs"
+    "setup:db": "node scripts/run-migrations.mjs",
+    "setup:full": "node scripts/full-setup.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.7.0",
