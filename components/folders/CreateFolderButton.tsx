@@ -66,9 +66,9 @@ export default function CreateFolderButton() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+        className="btn-narekan-accent"
       >
-        + 新規フォルダ
+        ＋ 新規フォルダ
       </button>
 
       {isOpen && (
@@ -145,7 +145,8 @@ export default function CreateFolderButton() {
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="flex-1 px-4 py-2 border-3 border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  style={{ borderWidth: '3px' }}
                   disabled={loading}
                 >
                   キャンセル
@@ -153,7 +154,7 @@ export default function CreateFolderButton() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50"
+                  className="btn-narekan-primary flex-1 disabled:opacity-50"
                 >
                   {loading ? '作成中...' : '作成'}
                 </button>

@@ -127,7 +127,7 @@ export default function DashboardLayout({ children, user }: DashboardLayoutProps
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="w-full px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="w-full px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors border border-gray-300"
                 >
                   ログアウト
                 </button>
@@ -164,28 +164,28 @@ export default function DashboardLayout({ children, user }: DashboardLayoutProps
             <NotificationBell userId={user?.id || ''} />
             <Link
               href="/articles/new"
-              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+              className="btn-narekan-accent"
             >
-              + 新規作成
+              ＋ 新規作成
             </Link>
           </div>
         </header>
 
         {/* Demo Mode Banner */}
         {user?.id === 'demo-user-id' && (
-          <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-6 py-3 flex items-center justify-between shadow-md">
+          <div className="bg-gradient-to-r from-accent-400 to-accent-600 text-white px-6 py-3 flex items-center justify-between shadow-md border-b-3 border-accent-700" style={{ borderBottomWidth: '3px' }}>
             <div className="flex items-center gap-3">
               <span className="text-2xl">🚀</span>
               <div>
                 <p className="font-semibold">デモモードで動作中</p>
-                <p className="text-sm text-green-100">
+                <p className="text-sm text-accent-100">
                   すべての機能を試すことができます。実際のデータを使用するにはログインしてください。
                 </p>
               </div>
             </div>
             <Link
               href="/login"
-              className="px-4 py-2 bg-white text-green-600 rounded-lg hover:bg-green-50 transition-colors font-medium"
+              className="px-4 py-2 bg-white text-accent-600 rounded-lg hover:bg-accent-50 transition-colors font-medium border-2 border-accent-600"
             >
               ログインに切り替え
             </Link>

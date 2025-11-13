@@ -31,3 +31,42 @@ body {
     text-wrap: balance;
   }
 }
+
+/* ナレカン風ボタンスタイル */
+@layer components {
+  .btn-narekan {
+    @apply px-6 py-3 rounded-lg font-medium transition-all;
+    border: 3px solid currentColor;
+    box-shadow: 0 4px 0 0 currentColor;
+  }
+
+  .btn-narekan:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 0 currentColor;
+  }
+
+  .btn-narekan:active {
+    transform: translateY(4px);
+    box-shadow: none;
+  }
+
+  .btn-narekan-primary {
+    @apply btn-narekan bg-primary-600 text-white border-primary-700;
+    box-shadow: 0 4px 0 0 theme('colors.primary.700');
+  }
+
+  .btn-narekan-primary:hover {
+    @apply bg-primary-700;
+    box-shadow: 0 2px 0 0 theme('colors.primary.800');
+  }
+
+  .btn-narekan-accent {
+    @apply btn-narekan bg-accent-500 text-white border-accent-600;
+    box-shadow: 0 4px 0 0 theme('colors.accent.600');
+  }
+
+  .btn-narekan-accent:hover {
+    @apply bg-accent-600;
+    box-shadow: 0 2px 0 0 theme('colors.accent.700');
+  }
+}

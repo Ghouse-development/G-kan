@@ -17,7 +17,7 @@ export default function Home() {
           <div className="flex flex-col gap-4 items-center">
             <Link
               href="/dashboard"
-              className="px-12 py-4 bg-green-600 text-white text-lg font-semibold rounded-lg hover:bg-green-700 transition-colors shadow-lg"
+              className="btn-narekan-accent text-lg px-12 py-4"
             >
               🚀 デモモードで試す（ログイン不要）
             </Link>
@@ -25,13 +25,14 @@ export default function Home() {
             <div className="flex gap-4 mt-4">
               <Link
                 href="/login"
-                className="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+                className="btn-narekan-primary"
               >
                 ログイン
               </Link>
               <Link
                 href="/signup"
-                className="px-8 py-3 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors"
+                className="px-8 py-3 border-3 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-all font-medium"
+                style={{ borderWidth: '3px' }}
               >
                 新規登録
               </Link>
