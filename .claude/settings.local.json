@@ -18,7 +18,11 @@
       "Bash(npm run setup:db:*)",
       "Bash(npm run setup:full:*)",
       "Bash(chmod:*)",
-      "Bash(where:*)"
+      "Bash(where:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(vercel:*)",
+      "Bash(rd /s /q .next)"
     ],
     "deny": [],
     "ask": []
