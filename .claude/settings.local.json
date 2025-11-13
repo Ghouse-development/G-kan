@@ -16,7 +16,8 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(npm run setup:db:*)",
-      "Bash(npm run setup:full:*)"
+      "Bash(npm run setup:full:*)",
+      "Bash(chmod:*)"
     ],
     "deny": [],
     "ask": []
