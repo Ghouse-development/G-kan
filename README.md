@@ -2,17 +2,41 @@
 
 株式会社Gハウスの社内ナレッジを一元管理し、AI自然言語検索で誰でも簡単に情報にアクセスできるシステムです。
 
-## ⚠️ セットアップ必須項目
+## 🚀 クイックスタート（10分で完了）
 
-本システムを動作させるには以下の設定が必要です:
+### ステップ1: 自動セットアップ実行
 
-1. **OpenAI APIキーの設定** - `.env.local`の`OPENAI_API_KEY`を実際のキーに変更
-2. **Supabase Storageバケット作成** - `files`という名前のパブリックバケットを作成
-3. **データベースマイグレーション実行** - `supabase/migrations/`内のSQLファイルを実行
-4. **pgvector拡張の有効化** - Supabaseダッシュボードで有効化
+```bash
+npm install
+npm run setup:db
+```
 
-詳細な手順: [DEPLOYMENT_STEPS.md](./DEPLOYMENT_STEPS.md)
-チェックリスト: [SETUP_CHECKLIST.md](./SETUP_CHECKLIST.md)
+✅ 自動で完了: Storageバケット`files`の作成
+
+### ステップ2: データベースセットアップ（3分）
+
+1. [Supabase SQL Editor](https://supabase.com/dashboard/project/dtdtexkwbirnpqkwzzxl/sql/new) を開く
+2. `supabase/ALL_IN_ONE_SETUP.sql` の内容をコピー&ペースト
+3. **Run** をクリック
+
+### ステップ3: Storage RLSポリシー設定（2分）
+
+詳細は [QUICK_SETUP.md](./QUICK_SETUP.md) を参照
+
+### ステップ4: 起動
+
+```bash
+npm run dev
+```
+
+🎉 http://localhost:3000 で動作確認！
+
+**オプション**: AI機能を使う場合は`.env.local`に`OPENAI_API_KEY`を設定
+
+📖 詳細ガイド:
+- **10分で完了**: [QUICK_SETUP.md](./QUICK_SETUP.md) ← おすすめ！
+- 詳細手順: [DEPLOYMENT_STEPS.md](./DEPLOYMENT_STEPS.md)
+- チェックリスト: [SETUP_CHECKLIST.md](./SETUP_CHECKLIST.md)
 
 ## 🎯 主な機能
 
