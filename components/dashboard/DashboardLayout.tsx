@@ -171,6 +171,27 @@ export default function DashboardLayout({ children, user }: DashboardLayoutProps
           </div>
         </header>
 
+        {/* Demo Mode Banner */}
+        {user?.id === 'demo-user-id' && (
+          <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-6 py-3 flex items-center justify-between shadow-md">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <div>
+                <p className="font-semibold">デモモードで動作中</p>
+                <p className="text-sm text-green-100">
+                  すべての機能を試すことができます。実際のデータを使用するにはログインしてください。
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/login"
+              className="px-4 py-2 bg-white text-green-600 rounded-lg hover:bg-green-50 transition-colors font-medium"
+            >
+              ログインに切り替え
+            </Link>
+          </div>
+        )}
+
         {/* Page Content */}
         <main className="flex-1 overflow-y-auto">{children}</main>
       </div>

@@ -14,19 +14,35 @@ export default function Home() {
             自然言語で簡単に検索・共有
           </p>
 
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-col gap-4 items-center">
             <Link
-              href="/login"
-              className="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+              href="/dashboard"
+              className="px-12 py-4 bg-green-600 text-white text-lg font-semibold rounded-lg hover:bg-green-700 transition-colors shadow-lg"
             >
-              ログイン
+              🚀 デモモードで試す（ログイン不要）
             </Link>
-            <Link
-              href="/signup"
-              className="px-8 py-3 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors"
-            >
-              新規登録
-            </Link>
+
+            <div className="flex gap-4 mt-4">
+              <Link
+                href="/login"
+                className="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+              >
+                ログイン
+              </Link>
+              <Link
+                href="/signup"
+                className="px-8 py-3 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors"
+              >
+                新規登録
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg max-w-2xl mx-auto">
+            <p className="text-sm text-blue-800">
+              💡 <strong>デモモード：</strong>データベース設定なしでG-kanの機能を体験できます。<br />
+              実際のデータを使用するには、ログインまたは新規登録が必要です。
+            </p>
           </div>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
